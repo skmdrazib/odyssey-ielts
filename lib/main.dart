@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'features/vocabulary/pages/vocabulary_page.dart';
 
 void main() {
   runApp(const OdysseyApp());
@@ -31,13 +32,13 @@ class MainNavigationPage extends StatefulWidget {
 class _MainNavigationPageState extends State<MainNavigationPage> {
   int currentIndex = 0;
 
-  final pages = const [
-    Center(child: Text('Home')),
-    Center(child: Text('Vocabulary')),
-    Center(child: Text('Grammar')),
-    Center(child: Text('Progress')),
-    Center(child: Text('Settings')),
-  ];
+final pages = const [
+  Center(child: Text('Home')),
+  VocabularyPage(),
+  Center(child: Text('Grammar')),
+  Center(child: Text('Progress')),
+  Center(child: Text('Settings')),
+];
 
   @override
   Widget build(BuildContext context) {
