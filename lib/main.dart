@@ -13,43 +13,68 @@ class OdysseyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Odyssey IELTS English',
       theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
         useMaterial3: true,
+        colorSchemeSeed: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const MainNavigationPage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MainNavigationPage extends StatefulWidget {
+  const MainNavigationPage({super.key});
+
+  @override
+  State<MainNavigationPage> createState() => _MainNavigationPageState();
+}
+
+class _MainNavigationPageState extends State<MainNavigationPage> {
+  int currentIndex = 0;
+
+  final pages = const [
+    Center(child: Text('Home')),
+    Center(child: Text('Vocabulary')),
+    Center(child: Text('Grammar')),
+    Center(child: Text('Progress')),
+    Center(child: Text('Settings')),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final modules = [
-      'Vocabulary',
-      'Grammar',
-      'Reading',
-      'Writing',
-      'Listening',
-      'Speaking',
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Odyssey IELTS English'),
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: modules.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              title: Text(modules[index]),
-              trailing: const Icon(Icons.arrow_forward_ios),
-            ),
-          );
+      body: pages[currentIndex],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: currentIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            currentIndex = index;
+          });
         },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.menu_book),
+            label: 'Vocabulary',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.school),
+            label: 'Grammar',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.bar_chart),
+            label: 'Progress',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
       ),
     );
   }
