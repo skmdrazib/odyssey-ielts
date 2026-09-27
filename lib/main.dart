@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'features/vocabulary/pages/vocabulary_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'features/progress/pages/progress_page.dart';
+import 'features/home/home_page.dart';
+
 
 void main() {
-  runApp(const OdysseyApp());
+  runApp(
+    const ProviderScope(
+      child: OdysseyApp(),
+    ),
+  );
 }
 
 class OdysseyApp extends StatelessWidget {
@@ -33,12 +41,13 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
   int currentIndex = 0;
 
 final pages = const [
-  Center(child: Text('Home')),
+  HomePage(),
   VocabularyPage(),
   Center(child: Text('Grammar')),
-  Center(child: Text('Progress')),
+  ProgressPage(),
   Center(child: Text('Settings')),
 ];
+
 
   @override
   Widget build(BuildContext context) {
