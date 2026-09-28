@@ -3,7 +3,7 @@ import 'features/vocabulary/pages/vocabulary_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'features/progress/pages/progress_page.dart';
 import 'features/home/home_page.dart';
-
+import 'features/progress/pages/progress_page.dart';
 
 
 void main() {
@@ -42,11 +42,20 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
   int currentIndex = 0;
 
 final pages = const [
+
   HomePage(),
+
   VocabularyPage(),
-  Center(child: Text('Grammar')),
+
+  Center(
+    child: Text('Grammar'),
+  ),
+
   ProgressPage(),
-  Center(child: Text('Settings')),
+
+  Center(
+    child: Text('Settings'),
+  ),
 ];
 
 
