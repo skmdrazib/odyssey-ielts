@@ -3,7 +3,7 @@ import 'features/vocabulary/pages/vocabulary_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'features/progress/pages/progress_page.dart';
 import 'features/home/home_page.dart';
-import 'features/progress/pages/progress_page.dart';
+
 
 
 void main() {
