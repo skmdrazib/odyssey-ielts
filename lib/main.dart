@@ -5,6 +5,7 @@ import 'features/progress/pages/progress_page.dart';
 import 'features/home/home_page.dart';
 
 
+
 void main() {
   runApp(
     const ProviderScope(

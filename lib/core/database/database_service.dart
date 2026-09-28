@@ -26,13 +26,15 @@ class DatabaseService {
         )
         ''');
 
-        await db.execute('''
-        CREATE TABLE progress(
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          lesson TEXT,
-          completed INTEGER
-        )
-        ''');
+await db.execute('''
+CREATE TABLE quiz_results(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  score INTEGER,
+  totalQuestions INTEGER,
+  date TEXT
+)
+''');
+
       },
     );
   }
